@@ -1,0 +1,578 @@
+﻿@model FinancialAnalysis.Models.Client
+
+<style>
+    .client-details-table th {
+        padding-right: 10px;
+        font-size: 16px;
+    }
+
+    .client-details-table td {
+        font-size: 16px;
+    }
+
+    .client-details-table {
+        margin: 20px;
+    }
+
+    hr {
+        margin-top: 0;
+    }
+</style>
+<div id="page-wrapper">
+    <div>
+        <div class="row">
+            <div class="col-lg-12">
+                <h3 style="color:#5bc0de">Analiza</h3>
+            </div>
+        </div>
+        <hr />
+        <div class="row">
+            <div class="col-lg-12">
+                <h3 style="color:#5bc0de">@Model.Name  @Model.Surname</h3>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-3">
+                <table class="client-details-table">
+                    <tr>
+                        <th>OIB:</th>
+                        <td>@Model.OIB</td>
+                    </tr>
+                    <tr>
+                        <th>Godine:</th>
+                        <td>@Model.Age</td>
+                    </tr>
+                    <tr>
+                        <th>Datum rođenja:</th>
+                        <td>@Model.DateOfBirth.ToLongDateString()</td>
+                    </tr>
+                    <tr>
+                        <th>Adresa:</th>
+                        <td>@Model.Address</td>
+                    </tr>
+                    <tr>
+                        <th>Poštanski broj:</th>
+                        <td>@Model.ZIPCode</td>
+                    </tr>
+                    <tr>
+                        <th>Kontakt:</th>
+                        <td>@Model.PhoneNumber</td>
+                    </tr>
+                    <tr>
+                        <th>Državljanstvo:</th>
+                        <td>@Model.Citizenship</td>
+                    </tr>
+                    <tr>
+                        <th>Posao:</th>
+                        <td>@Model.Job</td>
+                    </tr>
+                    <tr>
+                        <th>Plaća(kn):</th>
+                        <td>@Model.Salary</td>
+                    </tr>
+                    <tr>
+                        <th>Banka:</th>
+                        <td>@Model.Bank</td>
+                    </tr>
+                </table>
+                <button id="btn-koncept" class="toggle hidden btn btn-block btn-info">KREIRAJ KONCEPT</button>
+
+            </div>
+            <div class="col-lg-1"></div>
+            <div class="col-lg-3">
+                <table class="table-condensed" style="margin-top: 15px;">
+                    <tr>
+                        <th colspan="2">Prihodi (kn)</th>
+                        <th colspan="2">Rashodi (kn)</th>
+                    </tr>
+                    <tr>
+                        <th>Plaća:</th>
+                        <td>@Model.Salary</td>
+                        <th>Stanarina:</th>
+                        <td>@Model.Rent</td>
+                    </tr>
+                    <tr>
+                        <th>Dodatno:</th>
+                        <td>@Model.ExtraIncome</td>
+                        <th>Režije:</th>
+                        <td>@Model.Bills</td>
+                    </tr>
+                    <tr>
+                        <th></th>
+                        <td></td>
+                        <th>Hrana:</th>
+                        <td>@Model.Food</td>
+                    </tr>
+                    <tr>
+                        <th></th>
+                        <td></td>
+                        <th>Luksuz:</th>
+                        <td>@Model.Luxury</td>
+                    </tr>
+                </table>
+            </div>
+            <div class="col-lg-1"></div>
+            <div class="col-lg-3">
+                <div id="morris-donut-chart" style="margin-top: -20px;"></div>
+            </div>
+            <div class="col-lg-1"></div>
+        </div>
+        <div class="row" style="margin-top: 20px;">
+            <div class="col-lg-2"></div>
+            <div class="col-lg-8">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <i class="fa fa-bar-chart-o fa-fw"></i> Ušteđeno/Potrošeno po mjesecima u KN
+                    </div>
+                    <!-- /.panel-heading -->
+                    <div class="panel-body">
+                        <div id="morris-area-chart"></div>
+                    </div>
+                    <!-- /.panel-body -->
+                </div>
+            </div>
+            <div class="col-lg-2"></div>
+        </div>
+        <div class="row toggle">
+            <div class="col-lg-12">
+                <h3 style="color:#5bc0de">Koncept</h3>
+            </div>
+        </div>
+        <hr />
+        <div class="row toggle">
+            <div class="col-lg-6">
+                <div class="panel panel-green">
+                    <div class="panel-heading text-center">
+                        Štednje/Investicije
+                    </div>
+                    <!-- /.panel-heading -->
+                    <div class="panel-body">
+                        <div class="flot-chart">
+                            <div class="flot-chart-content" id="flot-pie-chart-investment"></div>
+                        </div>
+                    </div>
+                    <!-- /.panel-body -->
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="panel panel-yellow">
+                    <div class="panel-heading text-center">
+                        Dopunsko zdrastveno osiguranje
+                    </div>
+                    <!-- /.panel-heading -->
+                    <div class="panel-body">
+                        <div class="flot-chart">
+                            <div class="flot-chart-content" id="flot-pie-chart-health"></div>
+                        </div>
+                    </div>
+                    <!-- /.panel-body -->
+                </div>
+            </div>
+
+        </div>
+        <div class="row toggle">
+            <div class="col-lg-6">
+                <div class="panel panel-red">
+                    <div class="panel-heading text-center">
+                        Životno osiguranje/Osiguranje od nezgode
+                    </div>
+                    <!-- /.panel-heading -->
+                    <div class="panel-body">
+                        <div class="flot-chart">
+                            <div class="flot-chart-content" id="flot-pie-chart-life"></div>
+                        </div>
+                    </div>
+                    <!-- /.panel-body -->
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="panel panel-primary">
+                    <div class="panel-heading text-center">
+                        Osiguranje imovine
+                    </div>
+                    <!-- /.panel-heading -->
+                    <div class="panel-body">
+                        <div class="flot-chart">
+                            <div class="flot-chart-content" id="flot-pie-chart-realEstate"></div>
+                        </div>
+                    </div>
+                    <!-- /.panel-body -->
+                </div>
+            </div>
+        </div>
+        <div class="row toggle">
+            <div class="col-lg-3">
+                <div class="panel panel-green">
+                    <div class="panel-heading text-center">
+                        Štednje/Investicije
+                    </div>
+                    <!-- /.panel-heading -->
+                    <div class="panel-body">
+                           FidelisLife je kombinacija investicija i životnog osiguranja. Trenutno je najbolji omjer sigurnosti i kamate na tržištu
+                           Najčešće se uzima kao štednja te se u tom slučajno postotak osiguranja života stavlja na 5%. Kamate variraju su između 6% - 9%.
+                           Najčešće se potpisuje na 32 godine, ali može i na manje. Odlična stvar kod ovog proizvoda je što već nakon treće godine možete
+                           izvaditi dio vašeg novca van bez da se štednja prekine, a nakon desete godine dobivate kamatu na kamatu.
+                    </div>
+                    <!-- /.panel-body -->
+                </div>
+            </div>
+            <div class="col-lg-3">
+                <div class="panel panel-yellow">
+                    <div class="panel-heading text-center">
+                        DZO
+                    </div>
+                    <!-- /.panel-heading -->
+                    <div class="panel-body">
+                        Dopunsko zdrastveno osiguranje od Uniqe preporučamo osobama između 18 i 60 godina. 
+                        Pokriva A i B kategoriju lijekova te mjesečno plaćate 65kn. Pokriva sve medicinske zahvate i liječenja.
+                        HZZO preporučamo za mlade koji se školuju s obzirom da im je besplatno te za umirovljenike jer im je najjeftinije nakon 61 godine.
+                    </div>
+                    <!-- /.panel-body -->
+                </div>
+            </div>
+            <div class="col-lg-3">
+                <div class="panel panel-red">
+                    <div class="panel-heading text-center">
+                        Životno/Nezgoda
+                    </div>
+                    <!-- /.panel-heading -->
+                    <div class="panel-body">
+                        Merkurovo osiguranje od nezgode je trenutno najbolje na tržištu. Mjesečno vaš košta između 42kn i 62kn ovisno zanimanju ili sportu kojim se bavite.
+                    </div>
+                    <!-- /.panel-body -->
+                </div>
+            </div>
+            <div class="col-lg-3">
+                <div class="panel panel-primary">
+                    <div class="panel-heading text-center">
+                        Imovina
+                    </div>
+                    <!-- /.panel-heading -->
+                    <div class="panel-body">
+                        Osiguranje imovine DOM&SREĆA od Uniqe je trenutno najbolje na tržištu. Za malu svotu novaca možete osigurati vaš dom od svih nepogoda koje ga mogu zateći.
+                    </div>
+                    <!-- /.panel-body -->
+                </div>
+            </div>
+        </div>
+    </div>
+    @*<p>
+            @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+            @Html.ActionLink("Back to List", "Index")
+        </p>*@
+</div>
+<!-- /#wrapper -->
+
+@Scripts.Render("~/bundles/jquery")
+@Scripts.Render("~/bundles/bootstrap")
+@Scripts.Render("~/bundles/morris")
+@Scripts.Render("~/bundles/morrisdata")
+@Scripts.Render("~/bundles/metisMenu")
+@Scripts.Render("~/bundles/raphael")
+@Scripts.Render("~/bundles/flot")
+@Scripts.Render("~/bundles/sbadmin")
+<script>
+    Morris.Donut({
+        element: 'morris-donut-chart',
+        colors: ["#00ff00","#ff0000"],
+        data: [{
+            label: "Zarađeno (kn)",
+            value: @Model.Salary + @Model.ExtraIncome
+        }, {
+            label: "Potrošeno (kn)",
+            value: @Model.Rent + @Model.Bills + @Model.Food + @Model.Luxury
+        }],
+        resize: true
+    });
+
+    var diff = @Model.Salary + @Model.ExtraIncome - (@Model.Rent + @Model.Bills + @Model.Food + @Model.Luxury);
+    var moneyLeft = diff;
+    var areaChartColor = "#00ff00";
+    var areaChartLabel = "Ušteđeno";
+    if (diff < 0) {
+        diff = 0 - diff;
+        areaChartColor = "#ff0000";
+        areaChartLabel = "Izgubljeno";
+    }
+
+    Morris.Area({
+        element: 'morris-area-chart',
+        data: [{
+            period: '2019 Q1',
+            moneySaved: diff
+        }, {
+            period: '2019 Q2',
+            moneySaved: diff * 2
+        }, {
+            period: '2019 Q3',
+            moneySaved: diff * 3
+        }, {
+            period: '2019 Q4',
+            moneySaved: diff * 4
+        }, {
+            period: '2020 Q1',
+            moneySaved: diff * 5
+        }, {
+            period: '2020 Q2',
+            moneySaved: diff * 6
+        }, {
+            period: '2020 Q3',
+            moneySaved: diff * 7
+        }],
+        xkey: 'period',
+        ykeys: ['moneySaved'],
+        labels: [areaChartLabel],
+        pointSize: 2,
+        hideHover: 'auto',
+        resize: true,
+        lineColors: [areaChartColor]
+    });
+
+
+    if (@Model.Age >= 18 && @Model.Age <= 60) {
+        var dataHealth = [{
+            label: "UNIQA",
+            data: 70
+        }, {
+            label: "CROATIA",
+            data: 10
+        }, {
+            label: "HZZO",
+            data: 17
+        }, {
+            label: "GENERALI",
+            data: 3
+        }];
+    } else {
+        var dataHealth = [{
+            label: "UNIQA",
+            data: 20
+        }, {
+            label: "CROATIA",
+            data: 6
+        }, {
+            label: "HZZO",
+            data: 69
+        }, {
+            label: "GENERALI",
+            data: 5
+        }];
+    }
+    //Flot Pie Chart
+
+    var plotObjHealth = $.plot($("#flot-pie-chart-health"), dataHealth, {
+        series: {
+            pie: {
+                innerRadius: 0.5,
+                show: true,
+                label: {
+                    show: true
+                }
+            }
+        },
+        legend: {
+            show: false
+        },
+        grid: {
+            hoverable: false
+        },
+        tooltip: true,
+        tooltipOpts: {
+            content: "%p.0%, %s", // show percentages, rounding to 2 decimal places
+            shifts: {
+                x: 20,
+                y: 0
+            },
+            defaultTheme: false
+        }
+    });
+
+
+    if (moneyLeft > 400 && @Model.Savings < 5000) {
+        var dataInvestment = [{
+            label: "Stambena štednja",
+            data: 25
+        }, {
+            label: "FidelisLife",
+            data: 70
+        }, {
+            label: "Dječja štednja",
+            data: 5
+        }
+        ];
+    } else if (@Model.KidsAmount > 0 && @Model.Savings > 5000) {
+        var dataInvestment = [{
+            label: "Stambena štednja",
+            data: 25
+        }, {
+            label: "FidelisLife",
+            data: 10
+        }, {
+            label: "Dječja štednja",
+            data: 65
+        }
+        ];
+    } else if (moneyLeft > 0 && moneyLeft <= 200 && @Model.Rent > 0) {
+        var dataInvestment = [{
+            label: "Stambena štednja",
+            data: 65
+        }, {
+            label: "FidelisLife",
+            data: 24
+        }, {
+            label: "Dječja štednja",
+            data: 11
+        }
+        ];
+    }
+    var plotObjInvestment = $.plot($("#flot-pie-chart-investment"), dataInvestment, {
+        series: {
+            pie: {
+                innerRadius: 0.5,
+                show: true,
+                label: {
+                    show: true
+                }
+            }
+        },
+        legend: {
+            show: false
+        },
+        grid: {
+            hoverable: false
+        },
+        tooltip: true,
+        tooltipOpts: {
+            content: "%p.0%, %s", // show percentages, rounding to 2 decimal places
+            shifts: {
+                x: 20,
+                y: 0
+            },
+            defaultTheme: false
+        }
+    });
+
+
+
+    var dataLife = [{
+        label: "MERKUR",
+        data: 65
+    }, {
+        label: "UNIQA",
+        data: 24
+    }, {
+        label: "TRIGLAV",
+        data: 11
+    }
+    ];
+
+    if (@Model.LifeInsurance == 0 && moneyLeft > 150) {
+        var dataLife = [{
+            label: "MERKUR",
+            data: 78
+        }, {
+            label: "UNIQA",
+            data: 22
+        }, {
+            label: "TRIGLAV",
+            data: 4
+        }
+        ];
+    } else if ( @Model.LifeInsurance > 0 && moneyLeft < 150 && @Model.Luxury > 250) {
+        var dataLife = [{
+            label: "MERKUR NEZGODA",
+            data: 70
+        }, {
+            label: "UNIQA NEZGODA",
+            data: 17
+        }, {
+            label: "ALLIANZ NEZGODA",
+            data: 13
+        }
+        ];
+    }
+    var plotObjLife = $.plot($("#flot-pie-chart-life"), dataLife, {
+        series: {
+            pie: {
+                innerRadius: 0.5,
+                show: true,
+                label: {
+                    show: true
+                }
+            }
+        },
+        legend: {
+            show: false
+        },
+        tooltip: true,
+        tooltipOpts: {
+            content: "%p.0%, %s", // show percentages, rounding to 2 decimal places
+            shifts: {
+                x: 20,
+                y: 0
+            },
+            defaultTheme: false
+        }
+    });
+
+
+    if (@Model.Rent == 0 && @Model.RealEstateInsurance == 0) {
+        var dataRealEstate = [{
+            label: "SAVA",
+            data: 28
+        }, {
+            label: "UNIQA",
+            data: 50
+        }, {
+            label: "CROATIA",
+            data: 22
+        }
+        ];
+    } else {
+        var dataRealEstate = [{
+            label: "SAVA kućanstvo",
+            data: 26
+        }, {
+            label: "UNIQA kućanstvo",
+            data: 52
+        }, {
+            label: "CROATIA kućanstvo",
+            data: 22
+        }
+        ];}
+    var plotObjRealEstate = $.plot($("#flot-pie-chart-realEstate"), dataRealEstate, {
+        series: {
+            pie: {
+                innerRadius: 0.5,
+                show: true,
+                label: {
+                    show: true
+                }
+            }
+        },
+        legend: {
+            show: false
+        },
+        grid: {
+            hoverable: false
+        },
+        tooltip: true,
+        tooltipOpts: {
+            content: "%p.0%, %s", // show percentages, rounding to 2 decimal places
+            shifts: {
+                x: 20,
+                y: 0
+            },
+            defaultTheme: false
+        }
+    });
+
+
+    $('.toggle').toggleClass('hidden');
+    $('#btn-koncept').click(function () {
+        console.log('clicked');
+        $('.toggle').toggleClass('hidden');
+
+    });
+
+</script>

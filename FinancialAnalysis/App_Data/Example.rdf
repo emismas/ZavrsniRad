@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE rdf:RDF [
+	<!ENTITY rdf 'http://www.w3.org/1999/02/22-rdf-syntax-ns#'>
+	<!ENTITY rdfs 'http://www.w3.org/2000/01/rdf-schema#'>
+	<!ENTITY xsd 'http://www.w3.org/2001/XMLSchema#'>
+	<!ENTITY xml 'http://www.w3.org/XML/1998/namespace'>
+	<!ENTITY fa 'http://localhost/'>
+	<!ENTITY ns0 'http://www.dotnetrdf.org/'>
+	<!ENTITY ns1 'http://www.dotnetrdf.org/'>
+	<!ENTITY ns2 'http://www.dotnetrdf.org/'>
+	<!ENTITY ns3 'http://www.dotnetrdf.org/'>
+	<!ENTITY ns4 'http://www.dotnetrdf.org/'>
+	<!ENTITY ns5 'http://www.dotnetrdf.org/'>
+	<!ENTITY ns6 'http://www.dotnetrdf.org/'>
+	<!ENTITY ns7 'http://www.dotnetrdf.org/'>
+	<!ENTITY ns8 'http://www.dotnetrdf.org/'>
+	<!ENTITY ns9 'http://www.dotnetrdf.org/'>
+	<!ENTITY ns12 'http://www.dotnetrdf.org/'>
+	<!ENTITY ns13 'http://www.dotnetrdf.org/'>
+	<!ENTITY ns14 'http://www.dotnetrdf.org/'>
+	<!ENTITY ns15 'http://www.dotnetrdf.org/'>
+	<!ENTITY ns16 'http://www.dotnetrdf.org/'>
+	<!ENTITY ns17 'http://www.dotnetrdf.org/'>
+	<!ENTITY ns18 'http://www.dotnetrdf.org/'>
+	<!ENTITY ns19 'http://www.dotnetrdf.org/'>
+	<!ENTITY ns20 'http://www.dotnetrdf.org/'>
+	<!ENTITY ns21 'http://www.dotnetrdf.org/'>
+	<!ENTITY ns22 'http://www.dotnetrdf.org/'>
+	<!ENTITY ns23 'http://www.dotnetrdf.org/'>
+	<!ENTITY ns24 'http://www.dotnetrdf.org/'>
+	<!ENTITY ns25 'http://www.dotnetrdf.org/'>
+	<!ENTITY ns26 'http://www.dotnetrdf.org/'>
+	<!ENTITY ns27 'http://www.dotnetrdf.org/'>
+	<!ENTITY ns28 'http://www.dotnetrdf.org/'>
+	<!ENTITY ns29 'http://www.dotnetrdf.org/'>
+	<!ENTITY ns32 'http://www.dotnetrdf.org/'>
+	<!ENTITY ns33 'http://www.dotnetrdf.org/'>
+	<!ENTITY ns34 'http://www.dotnetrdf.org/'>
+	<!ENTITY ns35 'http://www.dotnetrdf.org/'>
+	<!ENTITY ns36 'http://www.dotnetrdf.org/'>
+	<!ENTITY ns37 'http://www.dotnetrdf.org/'>
+	<!ENTITY ns38 'http://www.dotnetrdf.org/'>
+	<!ENTITY ns39 'http://www.dotnetrdf.org/'>
+]>
+<rdf:RDF xml:base="http://localhost/" xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#" xmlns:xsd="http://www.w3.org/2001/XMLSchema#" xmlns:xml="http://www.w3.org/XML/1998/namespace" xmlns:fa="http://localhost/" xmlns:ns0="http://www.dotnetrdf.org/" xmlns:ns1="http://www.dotnetrdf.org/" xmlns:ns2="http://www.dotnetrdf.org/" xmlns:ns3="http://www.dotnetrdf.org/" xmlns:ns4="http://www.dotnetrdf.org/" xmlns:ns5="http://www.dotnetrdf.org/" xmlns:ns6="http://www.dotnetrdf.org/" xmlns:ns7="http://www.dotnetrdf.org/" xmlns:ns8="http://www.dotnetrdf.org/" xmlns:ns9="http://www.dotnetrdf.org/" xmlns:ns12="http://www.dotnetrdf.org/" xmlns:ns13="http://www.dotnetrdf.org/" xmlns:ns14="http://www.dotnetrdf.org/" xmlns:ns15="http://www.dotnetrdf.org/" xmlns:ns16="http://www.dotnetrdf.org/" xmlns:ns17="http://www.dotnetrdf.org/" xmlns:ns18="http://www.dotnetrdf.org/" xmlns:ns19="http://www.dotnetrdf.org/" xmlns:ns20="http://www.dotnetrdf.org/" xmlns:ns21="http://www.dotnetrdf.org/" xmlns:ns22="http://www.dotnetrdf.org/" xmlns:ns23="http://www.dotnetrdf.org/" xmlns:ns24="http://www.dotnetrdf.org/" xmlns:ns25="http://www.dotnetrdf.org/" xmlns:ns26="http://www.dotnetrdf.org/" xmlns:ns27="http://www.dotnetrdf.org/" xmlns:ns28="http://www.dotnetrdf.org/" xmlns:ns29="http://www.dotnetrdf.org/" xmlns:ns32="http://www.dotnetrdf.org/" xmlns:ns33="http://www.dotnetrdf.org/" xmlns:ns34="http://www.dotnetrdf.org/" xmlns:ns35="http://www.dotnetrdf.org/" xmlns:ns36="http://www.dotnetrdf.org/" xmlns:ns37="http://www.dotnetrdf.org/" xmlns:ns38="http://www.dotnetrdf.org/" xmlns:ns39="http://www.dotnetrdf.org/" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+
+  <rdf:Description rdf:about="http://www.dotnetrdf.org/client/2">
+    <fa:Address>Frana Alfirevića 4</fa:Address>
+    <fa:Age>32</fa:Age>
+    <fa:Bank>PBZ</fa:Bank>
+    <fa:Bills>700</fa:Bills>
+    <fa:Citizenship>Hrvatsko</fa:Citizenship>
+    <fa:DateOfBirth>05/11/1986 23:00:00</fa:DateOfBirth>
+    <fa:DebtAmount>200</fa:DebtAmount>
+    <fa:ExtraIncome>0.00</fa:ExtraIncome>
+    <fa:Food>1200</fa:Food>
+    <fa:HealthInsurance>70</fa:HealthInsurance>
+    <fa:HealthInsuranceType></fa:HealthInsuranceType>
+    <fa:Id>2</fa:Id>
+    <fa:Job>Raučunovođa</fa:Job>
+    <fa:KidsAmount>2</fa:KidsAmount>
+    <fa:LifeInsurance>0.00</fa:LifeInsurance>
+    <fa:LifeInsuranceType></fa:LifeInsuranceType>
+    <fa:Luxury>300</fa:Luxury>
+    <fa:Name>Petra</fa:Name>
+    <fa:OIB>12345678912</fa:OIB>
+    <fa:PhoneNumber>0922442403</fa:PhoneNumber>
+    <fa:RealEstateInsurance>0.00</fa:RealEstateInsurance>
+    <fa:RealEstateInsuranceType></fa:RealEstateInsuranceType>
+    <fa:Rent>2000</fa:Rent>
+    <fa:Salary>5300</fa:Salary>
+    <fa:Savings>400</fa:Savings>
+    <fa:Surname>Nagradić</fa:Surname>
+    <fa:VehicleInsurance>0.00</fa:VehicleInsurance>
+    <fa:VehicleInsuranceType></fa:VehicleInsuranceType>
+    <fa:ZIPCode>10000</fa:ZIPCode>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.dotnetrdf.org/client/3">
+    <fa:Address>Donje svetice 83</fa:Address>
+    <fa:Age>28</fa:Age>
+    <fa:Bank>ZABA</fa:Bank>
+    <fa:Bills>2000</fa:Bills>
+    <fa:Citizenship>Hrvatsko</fa:Citizenship>
+    <fa:DateOfBirth>19/01/1991 23:00:00</fa:DateOfBirth>
+    <fa:DebtAmount>50</fa:DebtAmount>
+    <fa:ExtraIncome>200</fa:ExtraIncome>
+    <fa:Food>1500</fa:Food>
+    <fa:HealthInsurance>70</fa:HealthInsurance>
+    <fa:HealthInsuranceType></fa:HealthInsuranceType>
+    <fa:Id>3</fa:Id>
+    <fa:Job>Konobar</fa:Job>
+    <fa:KidsAmount>0</fa:KidsAmount>
+    <fa:LifeInsurance>0.00</fa:LifeInsurance>
+    <fa:LifeInsuranceType></fa:LifeInsuranceType>
+    <fa:Luxury>600</fa:Luxury>
+    <fa:Name>Zrinka</fa:Name>
+    <fa:OIB>12345678912</fa:OIB>
+    <fa:PhoneNumber>0919438604</fa:PhoneNumber>
+    <fa:RealEstateInsurance>0.00</fa:RealEstateInsurance>
+    <fa:RealEstateInsuranceType></fa:RealEstateInsuranceType>
+    <fa:Rent>1900</fa:Rent>
+    <fa:Salary>5500</fa:Salary>
+    <fa:Savings>0.00</fa:Savings>
+    <fa:Surname>Nagradić</fa:Surname>
+    <fa:VehicleInsurance>0.00</fa:VehicleInsurance>
+    <fa:VehicleInsuranceType></fa:VehicleInsuranceType>
+    <fa:ZIPCode>10000</fa:ZIPCode>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.dotnetrdf.org/client/4">
+    <fa:Address>Krešimira Kovačevića 5</fa:Address>
+    <fa:Age>44</fa:Age>
+    <fa:Bank>ZABA</fa:Bank>
+    <fa:Bills>500</fa:Bills>
+    <fa:Citizenship>Hrvatsko</fa:Citizenship>
+    <fa:DateOfBirth>09/05/1974 22:00:00</fa:DateOfBirth>
+    <fa:DebtAmount>0.00</fa:DebtAmount>
+    <fa:ExtraIncome>2600</fa:ExtraIncome>
+    <fa:Food>1000</fa:Food>
+    <fa:HealthInsurance>65</fa:HealthInsurance>
+    <fa:HealthInsuranceType></fa:HealthInsuranceType>
+    <fa:Id>4</fa:Id>
+    <fa:Job>Nezaposlena</fa:Job>
+    <fa:KidsAmount>0</fa:KidsAmount>
+    <fa:LifeInsurance>0.00</fa:LifeInsurance>
+    <fa:LifeInsuranceType></fa:LifeInsuranceType>
+    <fa:Luxury>0.00</fa:Luxury>
+    <fa:Name>Daniela</fa:Name>
+    <fa:OIB>12345678912</fa:OIB>
+    <fa:PhoneNumber>0912110006</fa:PhoneNumber>
+    <fa:RealEstateInsurance>0.00</fa:RealEstateInsurance>
+    <fa:RealEstateInsuranceType></fa:RealEstateInsuranceType>
+    <fa:Rent>1500</fa:Rent>
+    <fa:Salary>0.00</fa:Salary>
+    <fa:Savings>0.00</fa:Savings>
+    <fa:Surname>Vujica</fa:Surname>
+    <fa:VehicleInsurance>0.00</fa:VehicleInsurance>
+    <fa:VehicleInsuranceType></fa:VehicleInsuranceType>
+    <fa:ZIPCode>10000</fa:ZIPCode>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.dotnetrdf.org/client/5">
+    <fa:Address>Vrbani 21</fa:Address>
+    <fa:Age>21</fa:Age>
+    <fa:Bank>PBZ</fa:Bank>
+    <fa:Bills>700</fa:Bills>
+    <fa:Citizenship>Hrvatsko</fa:Citizenship>
+    <fa:DateOfBirth>12/02/1997 23:00:00</fa:DateOfBirth>
+    <fa:DebtAmount>1000</fa:DebtAmount>
+    <fa:ExtraIncome>0.00</fa:ExtraIncome>
+    <fa:Food>700</fa:Food>
+    <fa:HealthInsurance>0</fa:HealthInsurance>
+    <fa:HealthInsuranceType></fa:HealthInsuranceType>
+    <fa:Id>5</fa:Id>
+    <fa:Job>Programer</fa:Job>
+    <fa:KidsAmount>0</fa:KidsAmount>
+    <fa:LifeInsurance>0.00</fa:LifeInsurance>
+    <fa:LifeInsuranceType></fa:LifeInsuranceType>
+    <fa:Luxury>500</fa:Luxury>
+    <fa:Name>Elvira</fa:Name>
+    <fa:OIB>36328718192</fa:OIB>
+    <fa:PhoneNumber>0912110006</fa:PhoneNumber>
+    <fa:RealEstateInsurance>0.00</fa:RealEstateInsurance>
+    <fa:RealEstateInsuranceType></fa:RealEstateInsuranceType>
+    <fa:Rent>3000</fa:Rent>
+    <fa:Salary>7800</fa:Salary>
+    <fa:Savings>2000</fa:Savings>
+    <fa:Surname>Mišmaš</fa:Surname>
+    <fa:VehicleInsurance>0.00</fa:VehicleInsurance>
+    <fa:VehicleInsuranceType></fa:VehicleInsuranceType>
+    <fa:ZIPCode>10000</fa:ZIPCode>
+  </rdf:Description>
+</rdf:RDF>

@@ -1,0 +1,101 @@
+﻿@model IEnumerable<FinancialAnalysis.Models.Client>
+
+@{
+    ViewBag.Title = "Home Page";
+}
+<div id="page-wrapper">
+    <div class="row" style="display:flex;">
+        <div class="col-sm-2">
+            <h3>Klijenti</h3>
+        </div>
+        <div class="col-sm-10" style="display:flex;align-items:center;justify-content: flex-end;">
+                <a href="Home/AddClient" class="btn btn-info" type="button" style="float:right;"> Dodaj klijenta</a>
+        </div>
+    </div>
+    <table class="table table-striped">
+        <tr>
+            <th>
+                OIB
+            </th>
+            <th>
+                Ime
+            </th>
+            <th>
+                Prezime
+            </th>
+            <th>
+                Godine
+            </th>
+            <th>
+                Adresa
+            </th>
+            <th>
+                Kontakt
+            </th>
+            <th>
+                Posao
+            </th>
+            <th>
+                Plaća
+            </th>
+            <th>
+                Dodatni prihodi
+            </th>
+            <th>
+                Ušteđevina
+            </th>
+            <th>
+                Banka
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.OIB)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Surname)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Age)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Address)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PhoneNumber)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Job)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Salary)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ExtraIncome)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Savings)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Bank)
+                </td>
+                <td style="display:flex;justify-content:space-between;">
+                    @Html.ActionLink(" ", "Edit", new { id = item.Id }, new { @class = "glyphicon glyphicon-edit" }) 
+                    @Html.ActionLink(" ", "ClientDetails", new { id = item.Id }, new { @class= "glyphicon glyphicon-list-alt" }) 
+                    @Html.ActionLink(" ", "Delete", new { id = item.Id }, new { @class = "glyphicon glyphicon-remove" })
+                </td>
+            </tr>
+        }
+
+    </table>
+
+    <footer style="position:absolute;bottom:5px; left: 45%;">
+        <span class="text-center">&#169; Copyright 2019 Elvira Mišmaš</span>
+    </footer>
